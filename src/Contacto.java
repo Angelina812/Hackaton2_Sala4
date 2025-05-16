@@ -1,22 +1,22 @@
 public class Contacto {
     String nombre;
     String apellido;
-    String contacto;
+    String nuevoTelefono;
 
     public Contacto() {
     }
 
-    public Contacto(String nombre, String apellido, String contacto) {
+    public Contacto(String nombre, String apellido, String nuevoTelefono) {
         if (nombre == null || nombre.trim().isEmpty() ||
                 apellido == null || apellido.trim().isEmpty() ||
-                contacto == null || contacto.trim().isEmpty()) {
+                nuevoTelefono == null || nuevoTelefono.trim().isEmpty()) {
             System.out.println("Error, Ingrese todos los campos.");
-        } else if (!contacto.matches("\\d{10}")) {
+        } else if (!nuevoTelefono.matches("\\d{10}")) {
             System.out.println("Datos incompletos. El número debe tener 10 dígitos.");
         } else {
             this.nombre = nombre.trim();
             this.apellido = apellido.trim();
-            this.contacto = contacto.trim();
+            this.nuevoTelefono = nuevoTelefono.trim();
         }
     }
 
@@ -44,13 +44,13 @@ public class Contacto {
         }
     }
 
-    public String getContacto() {
-        return contacto;
+    public String getNuevoTelefono() {
+        return nuevoTelefono;
     }
 
-    public void setContacto(String contacto) {
-        if (contacto != null && contacto.matches("\\d{10}")) {
-            this.contacto = contacto.trim();
+    public void setNuevoTelefono(String nuevoTelefono) {
+        if (nuevoTelefono != null && nuevoTelefono.matches("\\d{10}")) {
+            this.nuevoTelefono = nuevoTelefono.trim();
         } else {
             System.out.println("El número ingresado debe tener exactamente 10 dígitos numéricos.");
         }
@@ -58,10 +58,10 @@ public class Contacto {
 
     @Override
     public String toString() {
-        return nombre + " " + apellido + " - " + contacto;
+        return nombre + " " + apellido + " - " + nuevoTelefono;
     }
 
-    public boolean sonIguales (Contacto nuevo){
+    public boolean sonIguales(Contacto nuevo){
         if (nuevo == null){
             return false;
         }
