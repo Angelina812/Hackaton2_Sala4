@@ -1,10 +1,9 @@
 public class Contacto {
-    String nombre;
-    String apellido;
-    String contacto;
 
-    public Contacto() {
-    }
+    private String nombre;
+    private String apellido;
+    private String contacto;
+
 
     public Contacto(String nombre, String apellido, String contacto) {
         if (nombre == null || nombre.trim().isEmpty() ||
@@ -14,17 +13,18 @@ public class Contacto {
         } else if (!contacto.matches("\\d{10}")) {
             System.out.println("Datos incompletos. El número debe tener 10 dígitos.");
         } else {
-            this.nombre = nombre.trim();
+            this.nombre   = nombre.trim();
             this.apellido = apellido.trim();
             this.contacto = contacto.trim();
         }
     }
 
+
     public String getNombre() {
         return nombre;
     }
 
-    public void setNombre(String nombre){
+    public void setNombre(String nombre) {
         if (nombre != null && !nombre.trim().isEmpty()) {
             this.nombre = nombre.trim();
         } else {
@@ -61,14 +61,14 @@ public class Contacto {
         return nombre + " " + apellido + " - " + contacto;
     }
 
-    public boolean sonIguales (Contacto nuevo){
-        if (nuevo == null){
-            return false;
-        }
-        String nombreThis = this.nombre.trim().toLowerCase();
+
+    public boolean sonIguales(Contacto nuevo) {
+        if (nuevo == null) return false;
+
+        String nombreThis   = this.nombre  .trim().toLowerCase();
         String apellidoThis = this.apellido.trim().toLowerCase();
 
-        String nombreNuevo = nuevo.nombre.trim().toLowerCase();
+        String nombreNuevo   = nuevo.nombre  .trim().toLowerCase();
         String apellidoNuevo = nuevo.apellido.trim().toLowerCase();
 
         return nombreThis.equals(nombreNuevo) && apellidoThis.equals(apellidoNuevo);
